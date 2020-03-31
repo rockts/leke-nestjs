@@ -8,6 +8,7 @@ import {
   Post,
   Body,
 } from '@nestjs/common';
+import { CreatePostDto } from './posts.dto';
 
 @Controller('posts')
 export class PostsController {
@@ -26,7 +27,7 @@ export class PostsController {
   }
 
   @Post()
-  store(@Body() body) {
-    console.log(body);
+  store(@Body() post: CreatePostDto) {
+    console.log(post.title);
   }
 }
