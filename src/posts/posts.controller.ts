@@ -13,11 +13,8 @@ import { DemoService } from './provideres/demo/demo.service';
 
 @Controller('posts')
 export class PostsController {
-  private readonly demoService;
+  constructor(private readonly demoService: DemoService) {}
 
-  constructor(demoService: DemoService) {
-    this.demoService = demoService;
-  }
   @Get()
   index() {
     return this.demoService.findAll();
