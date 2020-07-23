@@ -1,4 +1,4 @@
-import { Controller, Post, Body } from '@nestjs/common';
+import { Controller, Post, Body, Get } from '@nestjs/common';
 import { PostService } from './post.service';
 
 @Controller('posts')
@@ -8,5 +8,10 @@ export class PostController {
   @Post()
   async store(@Body() data) {
     return await this.postService.store(data);
+  }
+
+  @Get()
+  async index() {
+    return await this.postService.index();
   }
 }
